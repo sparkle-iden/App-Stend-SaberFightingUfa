@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#181713</color>
+    <color name="colorPrimaryDark">#181713</color>
+    <color name="colorAccent">#181713</color>
+	 <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:selectableItemBackground">?android:attr/selectableItemBackground</item>
+        <item name="android:colorControlHighlight">@android:color/transparent</item>
+    </style>
+</resources>

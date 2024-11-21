@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiApp3.Page.MainPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp3"
+             NavigationPage.HasNavigationBar="False"
+             
+             >
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+                <Image Grid.Row="0"
+                  
+                    Source="kto_my_chto_my.png"
+                    
+                />
+        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="1"  VerticalOptions="Center">
+
+            <!-- Левая стрелка -->
+            <Button Text="&#x276E;" 
+         WidthRequest="50" 
+         HeightRequest="150"
+         HorizontalOptions="Start" 
+         VerticalOptions="Center"
+         BackgroundColor="Transparent" 
+         TextColor="Beige" 
+         FontSize="40"
+         Clicked="OnCounterClicked"/>
+
+            <Button Text="Далее" HeightRequest="100" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40" Clicked="OnCounterClicked" FontFamily="helvetica_bold"></Button>
+
+            <!-- Правая стрелка -->
+            <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
+         BackgroundColor="Transparent"
+         HorizontalOptions="End" 
+         VerticalOptions="Center"
+         TextColor="Beige" 
+         FontSize="40"
+         Clicked="OnCounterClicked"/>
+
+        </StackLayout>
+        
+     </Grid>
+
+</ContentPage>

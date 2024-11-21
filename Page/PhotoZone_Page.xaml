@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.Page.PhotoZone_Page"
+             Title="PhotoZone_Page"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid BackgroundColor="#181713" Padding="2" RowSpacing="30">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Фотозона" Grid.Row="1" Grid.ColumnSpan="2" TextColor="#d6d5c0" HorizontalTextAlignment="Center" VerticalTextAlignment="End" FontSize="35"></Label>
+
+        <VerticalStackLayout Grid.Row="2" WidthRequest="450" VerticalOptions="Center">
+            <Label Text="Что то у нашего аванпоста маленькая известность, не могли бы сделать фото на нем и выложить это в межгалактическую сеть(ВКонтакте), после можете подойти к одному из наших контрабандистов и он выдаст вам вашу награду"  FontSize="25" HorizontalTextAlignment="Center" HorizontalOptions="Center" ></Label>
+            <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" Clicked="QR_scan"></ImageButton>
+
+        </VerticalStackLayout>
+        <!-- Верхняя панель с текстом и значком -->
+        <Grid Grid.Row="0"  HorizontalOptions="Center" ColumnSpacing="150">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="Login_user"
+                           FontSize="2,5"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           TextColor="#d6d5c0"
+                           Grid.Column="0"/>
+            <StackLayout Orientation="Horizontal"
+                  HorizontalOptions="End"
+                  VerticalOptions="Center"
+                  Grid.Column="1">
+                <Label x:Name="User_Money"
+                FontSize="Large"
+                TextColor="#d6d5c0"/>
+                <!-- Значок -->
+                <Image Source="credit.png"
+                HeightRequest="30"
+                WidthRequest="30"/>
+            </StackLayout>
+        </Grid>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="3" HeightRequest="150" VerticalOptions="Center">
+
+            <!-- Левая стрелка -->
+            <Button Text="&#x276E;" 
+                    WidthRequest="50" 
+                    HeightRequest="150"
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center"
+                    BackgroundColor="Transparent" 
+                    TextColor="Beige" 
+                    FontSize="40"
+                    Clicked="Nazad"/>
+
+            <Button Text="НАЗАД" HeightRequest="80" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40"  Clicked="Nazad"></Button>
+
+            <!-- Правая стрелка -->
+            <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="End" 
+                    VerticalOptions="Center"
+                    TextColor="Beige" 
+                    FontSize="40"
+                    Clicked="Nazad"/>
+
+        </StackLayout>
+
+
+    </Grid>
+
+</ContentPage>

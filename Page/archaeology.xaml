@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.Page.Archaeology"
+             Title="archaeology"
+             BackgroundColor="#181713" Padding="2"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid BackgroundColor="#181713" Padding="2" RowSpacing="50">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Археология" Grid.Row="1" Grid.ColumnSpan="2" TextColor="#d6d5c0" HorizontalTextAlignment="Center" VerticalTextAlignment="End" FontSize="35"></Label>
+        
+        <Label Text="У нас есть археолог и ему нужна помощь, не могли бы вы отыскать его и помочь ему в его делах" Grid.Row="2" FontSize="25" HorizontalTextAlignment="Center" HorizontalOptions="Center"></Label>
+        
+        <!-- Верхняя панель с текстом и значком -->
+        <Grid Grid.Row="0"  HorizontalOptions="Center" ColumnSpacing="150">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+                    <Label x:Name="Login_user"
+                           FontSize="2,5"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           TextColor="#d6d5c0"
+                           Grid.Column="0"/>
+            <StackLayout Orientation="Horizontal"
+                  HorizontalOptions="End"
+                  VerticalOptions="Center"
+                  Grid.Column="1">
+                <Label x:Name="User_Money"
+                FontSize="Large"
+                TextColor="#d6d5c0"/>
+                <!-- Значок -->
+                <Image Source="credit.png"
+                HeightRequest="30"
+                WidthRequest="30"/>
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="3" RowSpacing="1" ColumnSpacing="0"  HorizontalOptions="Center" VerticalOptions="Center"  BackgroundColor="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"/>
+                
+                <RowDefinition Height="250"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            
+            
+            <VerticalStackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" >
+                <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150"  Clicked="Excavations" x:Name="Excavations_Button"></ImageButton>
+                
+                <Label Text="РАСКОПКИ"
+                       TextColor="#d6d5c0"
+                       FontSize="2,3"
+                       HorizontalTextAlignment="Center"
+                       x:Name="Excavations_Label"/>
+                
+                <Label Text="0/1"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,5"
+                       x:Name="Excavations_Label_Progress"/>
+            </VerticalStackLayout>
+
+            
+            <VerticalStackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150"  BackgroundColor="#181713" Clicked="Holocron" x:Name="Lost_Artefact_Button"> </ImageButton>
+
+                <Label Text="ПОИСК АРТЕФАКТОВ"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,3"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       x:Name="Lost_Artefact_Label"/>
+                
+                <Label Text="0/2"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,5"
+                       x:Name="Lost_Artefact_Label_Progress"/>
+                
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" >
+                <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" Clicked="Lost_manusctipt" x:Name="Lost_Manuscript_Button"></ImageButton>
+                
+                <Label Text="НАЙТИ ПОТЕРЯННЫЕ РУКОПИСИ"
+                       TextColor="#d6d5c0"
+                       FontSize="2,3"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       x:Name="Lost_Manuscript_Label"/>
+
+                <Label Text="0/10"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,5"
+                       x:Name="Lost_Manuscript_Label_Progress"/>
+                
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="Center">
+                <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" BorderColor="Transparent" Clicked="Encryprion" x:Name="Encryotion_Button"/>
+                
+                <Label Text="РАСШИФРОВКА ШИФРА"
+                       x:Name="Encryotion_Label"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,3"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+
+                <Label Text="0/1"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,5"
+                       x:Name="Encryotion_Label_Progress"/>
+              </VerticalStackLayout>
+
+        </Grid>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="4" HeightRequest="150" VerticalOptions="Center">
+
+            <!-- Левая стрелка -->
+            <Button Text="&#x276E;" 
+                    WidthRequest="50" 
+                    HeightRequest="150"
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center"
+                    BackgroundColor="Transparent" 
+                    TextColor="Beige" 
+                    FontSize="40"
+                    Clicked="Nazad"/>
+
+            <Button Text="НАЗАД" HeightRequest="80" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40"  Clicked="Nazad"></Button>
+
+            <!-- Правая стрелка -->
+            <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="End" 
+                    VerticalOptions="Center"
+                    TextColor="Beige" 
+                    FontSize="40"
+                    Clicked="Nazad"/>
+
+        </StackLayout>
+         
+
+     </Grid>
+
+
+</ContentPage>

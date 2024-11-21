@@ -1,0 +1,139 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.Page.Quest"
+             NavigationPage.HasNavigationBar="False" >
+
+    <Grid BackgroundColor="#181713" RowSpacing="20" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Верхняя панель с текстом и значком -->
+        <Grid Grid.Row="0"  HorizontalOptions="Center" ColumnSpacing="200"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="Login_user"
+                   FontSize="2,5"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   TextColor="#d6d5c0"
+                   Grid.Column="0"/>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="End"
+                         VerticalOptions="Center"
+                         Grid.Column="1" >
+                <Label x:Name="User_Money"
+                       FontSize="Large"
+                       TextColor="#d6d5c0"/>
+                <!-- Значок -->
+                <Image Source="credit.png"
+                       HeightRequest="30"
+                       WidthRequest="30"/>
+            </StackLayout>
+        </Grid>
+
+        <Label Text="Возможныые активности для прохождения" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="30" LineBreakMode="WordWrap"></Label>
+
+        <!-- Основное содержимое - 3x2 сетка элементов -->
+        <Grid Grid.Row="2" RowSpacing="1" VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="250"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Археология -->
+            <VerticalStackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" >
+                <ImageButton Source="icon_light_v3.png" WidthRequest="160" HeightRequest="150" Clicked="Next_excavations"  x:Name="excavations_Next" ></ImageButton>
+                <Label Text="АРХЕОЛОГИЯ"
+                       TextColor="#d6d5c0"
+                       FontSize="2,3"
+                       />
+                <Label Text="0/3"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,5"
+                        x:Name="Progress_Archaaeology"/>
+            </VerticalStackLayout>
+
+            <!-- Ксенозоология -->
+            <VerticalStackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="Center">
+                <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" Clicked="Next_Xeno_Zoo" x:Name="Xeno_Zoo_Next"/>
+                <Label Text="КСЕНОЗООЛОГИЯ"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,3"/>
+                <Label Text="0/1"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,5"
+                        x:Name="Progress_XenoZoo"/>
+            </VerticalStackLayout>
+
+            <!-- Карточные игры -->
+            <VerticalStackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="Center">
+                <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" Clicked="Next_card_game" x:Name="Card_Game_Next"/>
+                <Label Text="КАРТОЧНЫЕ ИГРЫ"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,3"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       Padding="10,0,0,0"/>
+               
+            </VerticalStackLayout>
+
+            <!-- Наемник -->
+            <VerticalStackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="Center">
+                <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" Clicked="Hunter" x:Name="Hunter_Next"/>
+                <Label Text="НАЕМНИК"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,3"/>
+                <Label Text="0/1"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,5"
+                        x:Name="Progress_Bounty_Hunter"/>
+            </VerticalStackLayout>
+
+            <!-- Фото-зона -->
+            <VerticalStackLayout Grid.Row="2" Grid.Column="0" HorizontalOptions="Center">
+                <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" BorderColor="#181713" Clicked="PhotoZone" x:Name="PhotoZone_Next"/>
+                <Label Text="ФОТОЗОНА"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,3"/>
+                <Label Text="0/3"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,5"
+                        x:Name="Progress_PhotoZone"/>
+            </VerticalStackLayout>
+
+            <!-- Викторина -->
+            <VerticalStackLayout Grid.Row="2" Grid.Column="1" HorizontalOptions="Center">
+                <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" Clicked="Quiz_game" x:Name="Quiz_game_Next"/>
+                <Label Text="ВИКТОРИНА"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,3"/>
+                <Label Text="0/1"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="2,5"
+                       x:Name="Progress_Qustions"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+
+</ContentPage>

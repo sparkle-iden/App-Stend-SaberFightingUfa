@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="MauiApp3.Page.Quiz_Page"
+                 Title="Quiz_Page"
+                 NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <HorizontalStackLayout Grid.Row="1" HorizontalOptions="End" Grid.Column="1">
+            <Label Text="Викторина" TextColor="#d6d5c0"  FontSize="30" Grid.Row="1" WidthRequest="160" HeightRequest="50" ></Label>
+            <Image Source="icon_v3.png" HorizontalOptions="Center"  WidthRequest="70" HeightRequest="70"  ></Image>
+        </HorizontalStackLayout>
+
+        <Label x:Name="QuizEndLabel"
+               Text="Викторина завершена!"
+               IsVisible="False"
+               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="50"
+               TextColor="#d6d5c0"
+               
+               Grid.ColumnSpan="3"
+               Grid.RowSpan="4"/>
+
+
+        <Grid Grid.Row="2" HorizontalOptions="Center" Grid.ColumnSpan="3" RowSpacing="50" ColumnSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"></RowDefinition>
+                <RowDefinition Height="180"></RowDefinition>
+                <RowDefinition Height="180"></RowDefinition>
+                <RowDefinition Height="180"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <Label x:Name="QuestionLabel" TextColor="#d6d5c0"  Grid.ColumnSpan="2" Grid.Row="0" FontSize="30" Text="Вопрос" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+
+            <Button x:Name="Button1" Grid.Row="1" TextColor="#d6d5c0" Grid.Column="0" FontSize="30" >
+                <Button.Shadow>
+                    <Shadow Brush="#d6d5c0" Offset="0,0" Radius="70" Opacity="0.8"></Shadow>
+                </Button.Shadow>
+            </Button>
+
+            <Button x:Name="Button2" Grid.Row="1" TextColor="#d6d5c0" Grid.Column="1" FontSize="30" >
+                <Button.Shadow>
+                    <Shadow Brush="#d6d5c0" Offset="0,0" Radius="70" Opacity="0.8"></Shadow>
+                </Button.Shadow>
+            </Button>
+
+            <Button x:Name="Button3" Grid.Row="2" TextColor="#d6d5c0" Grid.Column="0" FontSize="30"  >
+                <Button.Shadow>
+                    <Shadow Brush="#d6d5c0" Offset="0,0" Radius="70" Opacity="0.8"></Shadow>
+                </Button.Shadow>
+            </Button>
+
+            <Button x:Name="Button4" Grid.Row="2" TextColor="#d6d5c0" Grid.Column="1" FontSize="30" >
+                <Button.Shadow>
+                    <Shadow Brush="#d6d5c0" Offset="0,0" Radius="70" Opacity="0.8"></Shadow>
+                </Button.Shadow>
+            </Button>
+
+            <Label x:Name="Fail_answer" Text="Ответ неверный"  TextColor="#d6d5c0" Grid.ColumnSpan="2" Grid.Row="3" HorizontalOptions="Center" FontSize="50" IsVisible="False"></Label>
+        </Grid>
+
+        <!--Верхняя панель-->
+        <Grid Grid.Row="0"  HorizontalOptions="Center" ColumnSpacing="150" Grid.ColumnSpan="3">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="Login_user"
+                             FontSize="2,5"
+                             HorizontalOptions="Start"
+                             VerticalOptions="Center"
+                             TextColor="#d6d5c0"
+                             Grid.Column="0"/>
+
+            <StackLayout Orientation="Horizontal"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"
+                               Grid.Column="1">
+
+                <Label x:Name="User_Money" FontSize="Large" TextColor="#d6d5c0"/>
+                <!-- Значок -->
+                <Image Source="credit.png" HeightRequest="30" WidthRequest="30" x:Name="Credit_resp"/>
+            </StackLayout>
+        </Grid>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="3"  VerticalOptions="Center" Grid.ColumnSpan="3">
+
+             <!--Левая стрелка--> 
+            <Button Text="&#x276E;" 
+              WidthRequest="50" 
+              HeightRequest="150"
+              HorizontalOptions="Start" 
+              VerticalOptions="Center"
+              BackgroundColor="Transparent" 
+              TextColor="Beige" 
+              FontSize="40"
+              Clicked="Nazad"
+              IsVisible="False"
+                    x:Name="strelka_vlevo"/>
+
+            <Button Text="НАЗАД" x:Name="Nazad_Button" IsVisible="False" HeightRequest="80" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40"  Clicked="Nazad" FontFamily="helvetica_bold"></Button>
+
+             <!--Правая стрелка--> 
+            <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
+              BackgroundColor="Transparent"
+              HorizontalOptions="End" 
+              VerticalOptions="Center"
+              TextColor="Beige" 
+              FontSize="40"
+              Clicked="Nazad" IsVisible="False"
+                    x:Name="strelka_pravo"/>
+
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

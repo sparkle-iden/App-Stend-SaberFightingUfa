@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       
+             x:Class="MauiApp3.Page.Card_game"
+             Title="Card_game"
+             BackgroundColor="#181713" Padding="2"
+NavigationPage.HasNavigationBar="False">
+    
+    <Grid BackgroundColor="#181713" Padding="2">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+
+        <!-- Верхняя панель с текстом и значком -->
+        <Grid Grid.Row="0"  HorizontalOptions="Center" ColumnSpacing="150">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="Login_user"
+                         FontSize="2,5"
+                         HorizontalOptions="Start"
+                         VerticalOptions="Center"
+                         TextColor="#d6d5c0"
+                         Grid.Column="0"/>
+            <StackLayout Orientation="Horizontal"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                Grid.Column="1">
+                <Label x:Name="User_Money"
+              FontSize="Large"
+              TextColor="#d6d5c0"/>
+                <!-- Значок -->
+                <Image Source="credit.png"
+              HeightRequest="30"
+              WidthRequest="30"/>
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center"  BackgroundColor="Transparent" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
+            <Label Text="На нашем аванпосте вы можете провести время за разными играми, а возможно ещё и подзаработать. Вам надо отыскать" Grid.Row="0" FontSize="35" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+            <VerticalStackLayout Grid.Row="1"  HorizontalOptions="Center" VerticalOptions="Center">
+                <ImageButton Source="icon_light_v3.png" WidthRequest="200" HeightRequest="200"  BackgroundColor="#181713" Clicked="Paazak_next"></ImageButton>
+
+                <Label Text="Паазак"
+                       HorizontalOptions="Center"
+                       TextColor="#d6d5c0"
+                       FontSize="35"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center">
+                </Label>
+       </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" >
+                <ImageButton Source="icon_light_v3.png" WidthRequest="200" HeightRequest="200" Clicked="Sabbak_next"></ImageButton>
+
+                <Label Text="Саббак"
+                     TextColor="#d6d5c0"
+                     FontSize="35"
+                     HorizontalTextAlignment="Center"
+                     VerticalTextAlignment="Center"/>
+            </VerticalStackLayout>
+
+        </Grid>
+        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="2" HeightRequest="150" VerticalOptions="Center">
+
+            <!-- Левая стрелка -->
+            <Button Text="&#x276E;" 
+                  WidthRequest="50" 
+                  HeightRequest="150"
+                  HorizontalOptions="Start" 
+                  VerticalOptions="Center"
+                  BackgroundColor="Transparent" 
+                  TextColor="Beige" 
+                  FontSize="40"
+                  Clicked="Nazad"/>
+
+            <Button Text="НАЗАД" HeightRequest="80" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40"  Clicked="Nazad"></Button>
+
+            <!-- Правая стрелка -->
+            <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
+                  BackgroundColor="Transparent"
+                  HorizontalOptions="End" 
+                  VerticalOptions="Center"
+                  TextColor="Beige" 
+                  FontSize="40"
+                  Clicked="Nazad"/>
+
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
