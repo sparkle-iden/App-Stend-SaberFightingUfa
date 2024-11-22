@@ -57,7 +57,7 @@
                        TextColor="#d6d5c0"
                        FontSize="2,3"
                        />
-                <Label Text="0/3"
+                <Label Text="0/4"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
                        FontSize="2,5"

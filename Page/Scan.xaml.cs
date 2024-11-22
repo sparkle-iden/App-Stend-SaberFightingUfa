@@ -18,7 +18,7 @@ public partial class Scan : ContentPage
     }
 
 
-    private void BarcodesDetected(object sender, ZXing.Net.Maui.BarcodeDetectionEventArgs e)
+    private async void BarcodesDetected(object sender, ZXing.Net.Maui.BarcodeDetectionEventArgs e)
     {
         cameraBarcodeReaderView.Options = new BarcodeReaderOptions
         {
@@ -45,12 +45,18 @@ public partial class Scan : ContentPage
                     {
 
                         // Ветвление для второго случая
-                        MainThread.BeginInvokeOnMainThread(() =>
+                        MainThread.BeginInvokeOnMainThread(async() =>
                         {
-                            Navigation.PopAsync();
+                             Navigation.PopAsync();
                             _query_sql.AddMoneyToUser(_userName, firstValue);
                             _query_sql.AddManuscriptsToUser(_userName, secondValue);
                             _query_sql.AddQuestProgressUser(_userName, questName);
+                            int progress = Convert.ToInt32(await _query_sql.GetSearchManuscriptsProgress(_userName, "Поиск рукописей"));
+
+                            if (progress == 10)
+                            {
+                                _query_sql.AddQuestProgressUser(_userName, "Археология");
+                            }
                         });
                         return;
                     }
@@ -99,6 +105,7 @@ public partial class Scan : ContentPage
                             Navigation.PopAsync();
                             _query_sql.AddMoneyToUser(_userName, firstValue);
                             _query_sql.AddQuestProgressUser(_userName, questName);
+                            _query_sql.AddQuestProgressUser(_userName, "Археология");
                         });
                         return;
                     }
@@ -121,11 +128,18 @@ public partial class Scan : ContentPage
                     {
 
                         // Ветвление для второго случая
-                        MainThread.BeginInvokeOnMainThread(() =>
+                        MainThread.BeginInvokeOnMainThread(async() =>
                         {
-                            Navigation.PopAsync();
+                             Navigation.PopAsync();
                             _query_sql.AddMoneyToUser(_userName, firstValue);
                             _query_sql.AddQuestProgressUser(_userName, questName);
+                            int progress = Convert.ToInt32(await _query_sql.GetSearchManuscriptsProgress(_userName, "Поиск артефактов"));
+
+                            if (progress == 2)
+                            {
+                                _query_sql.AddQuestProgressUser(_userName, "Археология");
+                            }
+
                         });
                         return;
                     }
@@ -152,6 +166,7 @@ public partial class Scan : ContentPage
                             Navigation.PopAsync();
                             _query_sql.AddMoneyToUser(_userName, firstValue);
                             _query_sql.AddQuestProgressUser(_userName, questName);
+                            _query_sql.AddQuestProgressUser(_userName, "Наемник");
                         });
                         return;
                     }
@@ -178,6 +193,7 @@ public partial class Scan : ContentPage
                             Navigation.PopAsync();
                             _query_sql.AddMoneyToUser(_userName, firstValue);
                             _query_sql.AddQuestProgressUser(_userName, questName);
+                            _query_sql.AddQuestProgressUser(_userName, "Наемник");
                         });
                         return;
                     }
@@ -225,11 +241,17 @@ public partial class Scan : ContentPage
                     {
 
                         // Ветвление для второго случая
-                        MainThread.BeginInvokeOnMainThread(() =>
+                        MainThread.BeginInvokeOnMainThread(async() =>
                         {
                             Navigation.PopAsync();
                             _query_sql.AddMoneyToUser(_userName, firstValue);
                             _query_sql.AddQuestProgressUser(_userName, questName);
+                            int progress = Convert.ToInt32(await _query_sql.GetSearchManuscriptsProgress(_userName, "Охота за головами"));
+
+                            if (progress == 3)
+                            {
+                                _query_sql.AddQuestProgressUser(_userName, "Охота за головами");
+                            }
                         });
                         return;
                     }
@@ -256,6 +278,7 @@ public partial class Scan : ContentPage
                             Navigation.PopAsync();
                             _query_sql.AddMoneyToUser(_userName, firstValue);
                             _query_sql.AddQuestProgressUser(_userName, questName);
+                            _query_sql.AddQuestProgressUser(_userName, "Наемник");
                         });
                         return;
                     }

@@ -246,6 +246,44 @@ namespace MauiApp3
             return progress;
         }
 
+        public async Task<int> GetSearchManuscriptsProgress(string userName, string QuestName)
+        {
+            string query = @"
+    SELECT CurrentProgress
+    FROM UserQuests
+    WHERE UserName = @UserName AND QuestName = @QuestName";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    await connection.OpenAsync();
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@UserName", userName);
+                        cmd.Parameters.AddWithValue("@QuestName", QuestName);
+
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                int current = reader.GetInt32("CurrentProgress");
+
+                                return current;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Ошибка выполнения запроса: {ex.Message}");
+                }
+            }
+
+            // Если данных нет, возвращаем 0
+            return (0);
+        }
+
         public async Task InitializeUserQuests(string userName)
         {
             string connectionString = "Server=192.168.0.100;Database=Stend_sfu;User ID=root;Password=;Pooling=false;";

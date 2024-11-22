@@ -19,7 +19,9 @@ public partial class Quest : ContentPage
     {
         base.OnAppearing();
         UpdateUserMoney(); // Обновление данных о деньгах
-        await UpdateQuestProgress();
+        UpdateQuestProgress();
+      
+        
     }
     private async Task UpdateQuestProgress()
     {
@@ -27,12 +29,14 @@ public partial class Quest : ContentPage
         {
             var progress = await _query_sql.GetQuestProgress(_userName);
 
-            // Обновляем статус каждого квеста
+           
+            
             UpdateQuestStatus(Progress_Archaaeology, excavations_Next, "Археология", progress);
             UpdateQuestStatus(Progress_XenoZoo, Xeno_Zoo_Next, "Ксенозоология", progress);
             UpdateQuestStatus(Progress_Bounty_Hunter, Hunter_Next, "Наемник", progress);
             UpdateQuestStatus(Progress_PhotoZone, PhotoZone_Next, "Фото-зона", progress);
             UpdateQuestStatus(Progress_Qustions, Quiz_game_Next, "Викторина", progress);
+            UpdateQuestStatus(Progress_Archaaeology, excavations_Next, "Археология", progress);
         }
         catch (Exception ex)
         {

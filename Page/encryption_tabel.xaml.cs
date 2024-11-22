@@ -63,6 +63,7 @@ public partial class encryption_tabel : ContentPage
                             MySqlCommand command = new MySqlCommand(query, connection);
                             command.Parameters.AddWithValue("@coinsToAdd", 2000);
                             command.Parameters.AddWithValue("@name", server_login);
+                            _query_sql.AddQuestProgressUser(server_login, "Археология");
                             command.ExecuteNonQuery();
                           
                         }

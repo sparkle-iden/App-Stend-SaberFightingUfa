@@ -17,17 +17,25 @@ namespace MauiApp3.Page
             _query_sql = new Query_SQL(Login_entry.Text);
             string login = Login_entry.Text;
             string password = Password_entry.Text;
-            if (!string.IsNullOrEmpty(login) && password!=null)
+            if (!string.IsNullOrEmpty(login) )
             {
-                // Сохранение логина в базу данных
-                await SaveLoginToDatabaseAsync(login, password);
-                Preferences.Set("UserName", login);
-                // Переход на следующую страницу
+                if (password != null)
+                {
+                    // Сохранение логина в базу данных
+                    await SaveLoginToDatabaseAsync(login, password);
+                    Preferences.Set("UserName", login);
+                    // Переход на следующую страницу
+                }
+                else
+                {
+                    await DisplayAlert("Ошибка", "Введите пин-код.", "OK");
+                }
+
 
             }
             else
             {
-                await DisplayAlert("Ошибка", "Введите логин.", "OK");
+                await DisplayAlert("Ошибка", "Введите имя.", "OK");
             }
         }
 
@@ -40,25 +48,33 @@ namespace MauiApp3.Page
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     await connection.OpenAsync(); // Асинхронное открытие соединения
-                    Console.WriteLine("Подключение успешно!");
-
-                    string query = "INSERT INTO User (UserName, UserMoney, Password) VALUES (@login, 0, @password)";
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    try
                     {
-                        command.Parameters.AddWithValue("@login", login);
-                        command.Parameters.AddWithValue("@password", password);
-                        await _query_sql.InitializeUserQuests(login);
-                        // Асинхронное выполнение команды
-                        await command.ExecuteNonQueryAsync();
-                        Console.WriteLine("Логин успешно сохранён в базе данных.");
+                        Console.WriteLine("Подключение успешно!");
+
+                        string query = "INSERT INTO User (UserName, UserMoney, Password) VALUES (@login, 0, @password)";
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@login", login);
+                            command.Parameters.AddWithValue("@password", password);
+                            await _query_sql.InitializeUserQuests(login);
+                            // Асинхронное выполнение команды
+                            await command.ExecuteNonQueryAsync();
+                            Console.WriteLine("Логин успешно сохранён в базе данных.");
+                            await Navigation.PushAsync(new Page.Quest(login));
+                        }
+
+                    }
+                    catch
+                    {
+                        await DisplayAlert("Ошибка", "Такой ник уже существует, введите другой.", "OK");
                     }
                 }
-                await Navigation.PushAsync(new Page.Quest(login));
+                
             }
-            catch (Exception ex)
+            catch 
             {
-                Console.WriteLine("Ошибка подключения: " + ex.Message);
-                await DisplayAlert("Ошибка", "Такой ник уже существует, введите другой.", "OK");
+                await DisplayAlert("Ошибка", "Ошибка подключения.", "OK");
             }
         }
 
@@ -105,6 +121,14 @@ namespace MauiApp3.Page
                     }
 
                 }
+                else
+                {
+                    await DisplayAlert("Ошибка", "Введите пин-код.", "OK");
+                }
+            }
+            else
+            {
+                await DisplayAlert("Ошибка", "Введите имя", "OK");
             }
           
         }

@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+
 namespace MauiApp3.Page;
 
 public partial class Archaeology : ContentPage
@@ -17,7 +19,6 @@ public partial class Archaeology : ContentPage
         base.OnAppearing();
         await UpdateUserMoney(); // Обновление данных о деньгах
         await UpdateQuestProgress();
-
     }
 
     // Метод для получения и отображения денег пользователя
@@ -52,7 +53,10 @@ public partial class Archaeology : ContentPage
         {
             await DisplayAlert("Ошибка", $"Не удалось загрузить прогресс квестов: {ex.Message}", "OK");
         }
+        
+       
     }
+  
 
     private void UpdateQuestStatus(Label progressLabel, ImageButton questButton, string questName, Dictionary<string, (int current, int max)> progress)
     {
