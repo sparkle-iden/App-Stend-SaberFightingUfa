@@ -53,7 +53,7 @@ public partial class encryption_tabel : ContentPage
                 {
                     
                     // Обновляем данные в базе данных
-                    string connectionString = "Server=192.168.0.100;Database=Stend_sfu;User ID=root;Password=;Pooling=false;";
+                    string connectionString = "Server=server269.hosting.reg.ru;Database=u2917647_Sparkle;User ID=u2917647_default;Password=1tB6J7OD3cmt3JD1;Charset=utf8mb4;";  
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
                         try

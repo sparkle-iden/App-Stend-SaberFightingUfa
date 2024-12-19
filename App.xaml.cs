@@ -1,4 +1,6 @@
-﻿namespace MauiApp3
+﻿using MauiApp3.Page;
+
+namespace MauiApp3
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new StartPage()); ;   
+            MainPage = new NavigationPage(new MainPage()); ;   
         }
     }
 }

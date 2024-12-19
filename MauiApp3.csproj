@@ -77,7 +77,6 @@
 	  <None Remove="Resources\Images\tauntaun_2.png" />
 	  <None Remove="Resources\Images\vampa.png" />
 	  <None Remove="Resources\Images\volf.png" />
-	  <None Remove="Resources\Images\vxod.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -129,9 +128,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Page\Scan.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Page\StartPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Page\WriteLogin.xaml">

@@ -82,7 +82,8 @@
                FontFamily="helvetica_bold" 
                FontSize="30" 
                VerticalOptions="Center"
-                HorizontalTextAlignment="Center">        
+                HorizontalTextAlignment="Center"
+                >        
             </Entry>
         </VerticalStackLayout>
 

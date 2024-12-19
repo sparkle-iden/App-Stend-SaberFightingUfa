@@ -16,32 +16,32 @@ namespace MauiApp3.Page
         {
             _query_sql = new Query_SQL(Login_entry.Text);
             string login = Login_entry.Text;
-            string password = Password_entry.Text;
-            if (!string.IsNullOrEmpty(login) )
+            int password = Convert.ToInt32(Password_entry.Text);
+            if (!string.IsNullOrEmpty(login))
             {
-                if (password != null)
-                {
-                    // Сохранение логина в базу данных
-                    await SaveLoginToDatabaseAsync(login, password);
-                    Preferences.Set("UserName", login);
-                    // Переход на следующую страницу
-                }
-                else
-                {
-                    await DisplayAlert("Ошибка", "Введите пин-код.", "OK");
-                }
-
-
+                    if (password != null)
+                    {
+                        // Сохранение логина в базу данных
+                        await SaveLoginToDatabaseAsync(login, password);
+                        Preferences.Set("UserName", login);
+                        // Переход на следующую страницу
+                    }
+                    else
+                    {
+                        await DisplayAlert("Ошибка", "Введите пин-код.", "OK");
+                    }
             }
             else
             {
                 await DisplayAlert("Ошибка", "Введите имя.", "OK");
             }
+            
+              
         }
 
-        private async Task SaveLoginToDatabaseAsync(string login, string password)
+        private async Task SaveLoginToDatabaseAsync(string login, int password)
         {
-            string connectionString = "Server=192.168.0.100;Database=Stend_sfu;User ID=root;Password=;Pooling=false;";
+            string connectionString = "Server=server269.hosting.reg.ru;Database=u2917647_Sparkle;User ID=u2917647_default;Password=1tB6J7OD3cmt3JD1;Charset=utf8mb4;";
 
             try
             {
@@ -84,7 +84,7 @@ namespace MauiApp3.Page
             {
                 if (Password_entry.Text != null)
                 {
-                    string connectionString = "Server=192.168.0.100;Database=Stend_sfu;User ID=root;Password=;Pooling=false;";
+                    string connectionString = "Server=server269.hosting.reg.ru;Database=u2917647_Sparkle;User ID=u2917647_default;Password=1tB6J7OD3cmt3JD1;Charset=utf8mb4;";
                     string query = "SELECT Password FROM User WHERE UserName = @UserName";
                     string Password=Password_entry.Text;
                     string login = Login_entry.Text;

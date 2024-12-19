@@ -10,7 +10,7 @@ namespace MauiApp3
 {
     class Query_SQL(string login)
     {
-        string connectionString = "Server=192.168.0.100;Database=Stend_sfu;User ID=root;Password=;Pooling=false;";
+        string connectionString = "Server=server269.hosting.reg.ru;Database=u2917647_Sparkle;User ID=u2917647_default;Password=1tB6J7OD3cmt3JD1;Charset=utf8mb4;";
        
 
         public async Task<int> GetMoneyUser(string login)
@@ -75,7 +75,6 @@ namespace MauiApp3
 
         public void AddManuscriptsToUser(string login, int Manuscript)
         {
-            string connectionString = "Server=192.168.0.100;Database=Stend_sfu;User ID=root;Password=;Pooling=false;";
             string query = $"INSERT INTO User_Manuscripts (UserName, Manuscript) VALUES ('{login}', {Manuscript})";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -125,7 +124,6 @@ namespace MauiApp3
 
         public void AddQuestProgressUser(string login, string QuestName)
         {
-            string connectionString = "Server=192.168.0.100;Database=Stend_sfu;User ID=root;Password=;Pooling=false;";
             string query = $"UPDATE UserQuests SET CurrentProgress = CurrentProgress + 1 WHERE UserName = @UserName AND QuestName =@QuestName";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -286,7 +284,6 @@ namespace MauiApp3
 
         public async Task InitializeUserQuests(string userName)
         {
-            string connectionString = "Server=192.168.0.100;Database=Stend_sfu;User ID=root;Password=;Pooling=false;";
 
             var defaultQuests = new List<(string QuestName, int MaxProgress)>
     {
