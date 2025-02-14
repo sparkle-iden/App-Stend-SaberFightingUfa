@@ -69,6 +69,7 @@
 	  <None Remove="Resources\Images\credit.png" />
 	  <None Remove="Resources\Images\golokrony_1.png" />
 	  <None Remove="Resources\Images\golokrony_2.png" />
+	  <None Remove="Resources\Images\Icon_Avanpost.png" />
 	  <None Remove="Resources\Images\icon_light_v3.png" />
 	  <None Remove="Resources\Images\kto_my_chto_my.png" />
 	  <None Remove="Resources\Images\login.png" />

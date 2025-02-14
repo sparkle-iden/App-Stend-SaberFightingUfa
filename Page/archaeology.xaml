@@ -27,7 +27,6 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
                     <Label x:Name="Login_user"
-                           FontSize="2,5"
                            HorizontalOptions="Start"
                            VerticalOptions="Center"
                            TextColor="#d6d5c0"
@@ -37,7 +36,6 @@
                   VerticalOptions="Center"
                   Grid.Column="1">
                 <Label x:Name="User_Money"
-                FontSize="Large"
                 TextColor="#d6d5c0"/>
                 <!-- Значок -->
                 <Image Source="credit.png"
@@ -64,14 +62,12 @@
                 
                 <Label Text="РАСКОПКИ"
                        TextColor="#d6d5c0"
-                       FontSize="2,3"
                        HorizontalTextAlignment="Center"
                        x:Name="Excavations_Label"/>
                 
                 <Label Text="0/1"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,5"
                        x:Name="Excavations_Label_Progress"/>
             </VerticalStackLayout>
 
@@ -82,7 +78,6 @@
                 <Label Text="ПОИСК АРТЕФАКТОВ"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,3"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
                        x:Name="Lost_Artefact_Label"/>
@@ -90,7 +85,6 @@
                 <Label Text="0/2"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,5"
                        x:Name="Lost_Artefact_Label_Progress"/>
                 
             </VerticalStackLayout>
@@ -100,7 +94,6 @@
                 
                 <Label Text="НАЙТИ ПОТЕРЯННЫЕ РУКОПИСИ"
                        TextColor="#d6d5c0"
-                       FontSize="2,3"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
                        x:Name="Lost_Manuscript_Label"/>
@@ -108,7 +101,6 @@
                 <Label Text="0/10"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,5"
                        x:Name="Lost_Manuscript_Label_Progress"/>
                 
             </VerticalStackLayout>
@@ -121,40 +113,35 @@
                        x:Name="Encryotion_Label"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,3"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"/>
 
                 <Label Text="0/1"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,5"
                        x:Name="Encryotion_Label_Progress"/>
               </VerticalStackLayout>
 
         </Grid>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="4" HeightRequest="150" VerticalOptions="Center">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="4" HeightRequest="150" VerticalOptions="Center" Spacing="-15">
 
             <!-- Левая стрелка -->
             <Button Text="&#x276E;" 
-                    WidthRequest="50" 
-                    HeightRequest="150"
-                    HorizontalOptions="Start" 
+                    HorizontalOptions="End" 
                     VerticalOptions="Center"
                     BackgroundColor="Transparent" 
                     TextColor="Beige" 
-                    FontSize="40"
-                    Clicked="Nazad"/>
+                    Clicked="Nazad"
+                   />
 
-            <Button Text="НАЗАД" HeightRequest="80" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40"  Clicked="Nazad"></Button>
+            <Button Text="НАЗАД" BackgroundColor="Transparent" TextColor="#d6d5c0"   Clicked="Nazad"></Button>
 
             <!-- Правая стрелка -->
-            <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
+            <Button Text="&#x276F;"
                     BackgroundColor="Transparent"
-                    HorizontalOptions="End" 
+                    HorizontalOptions="Start" 
                     VerticalOptions="Center"
                     TextColor="Beige" 
-                    FontSize="40"
                     Clicked="Nazad"/>
 
         </StackLayout>

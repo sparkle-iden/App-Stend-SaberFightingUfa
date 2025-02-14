@@ -17,7 +17,6 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label x:Name="Login_user"
-                   FontSize="2,5"
                    HorizontalOptions="Start"
                    VerticalOptions="Center"
                    TextColor="#d6d5c0"
@@ -27,7 +26,6 @@
                          VerticalOptions="Center"
                          Grid.Column="1" >
                 <Label x:Name="User_Money"
-                       FontSize="Large"
                        TextColor="#d6d5c0"/>
                 <!-- Значок -->
                 <Image Source="credit.png"
@@ -36,7 +34,7 @@
             </StackLayout>
         </Grid>
 
-        <Label Text="Возможныые активности для прохождения" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="30" LineBreakMode="WordWrap"></Label>
+        <Label Text="Возможныые активности для прохождения" Grid.Row="1" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"></Label>
 
         <!-- Основное содержимое - 3x2 сетка элементов -->
         <Grid Grid.Row="2" RowSpacing="1" VerticalOptions="Center">
@@ -52,16 +50,16 @@
 
             <!-- Археология -->
             <VerticalStackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" >
-                <ImageButton Source="icon_light_v3.png" WidthRequest="160" HeightRequest="150" Clicked="Next_excavations"  x:Name="excavations_Next" ></ImageButton>
+                <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" Clicked="Next_excavations"  x:Name="excavations_Next" ></ImageButton>
                 <Label Text="АРХЕОЛОГИЯ"
+                       HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,3"
-                       />
+                       Style="{StaticResource DynamicLabelStyle}"/>
                 <Label Text="0/4"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,5"
-                        x:Name="Progress_Archaaeology"/>
+                        x:Name="Progress_Archaaeology"
+                        Style="{StaticResource DynamicLabelStyle}"/>
             </VerticalStackLayout>
 
             <!-- Ксенозоология -->
@@ -70,11 +68,10 @@
                 <Label Text="КСЕНОЗООЛОГИЯ"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,3"/>
+                       Style="{StaticResource DynamicLabelStyle}"/>
                 <Label Text="0/1"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,5"
                         x:Name="Progress_XenoZoo"/>
             </VerticalStackLayout>
 
@@ -85,7 +82,6 @@
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,3"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
                        Padding="10,0,0,0"/>
@@ -97,12 +93,10 @@
                 <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" Clicked="Hunter" x:Name="Hunter_Next"/>
                 <Label Text="НАЕМНИК"
                        HorizontalOptions="Center"
-                       TextColor="#d6d5c0"
-                       FontSize="2,3"/>
+                       TextColor="#d6d5c0"/>
                 <Label Text="0/1"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,5"
                         x:Name="Progress_Bounty_Hunter"/>
             </VerticalStackLayout>
 
@@ -112,12 +106,11 @@
                 <Label Text="ФОТОЗОНА"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,3"/>
+                     />
                 <Label Text="0/3"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,5"
-                        x:Name="Progress_PhotoZone"/>
+                       x:Name="Progress_PhotoZone"/>
             </VerticalStackLayout>
 
             <!-- Викторина -->
@@ -125,12 +118,10 @@
                 <ImageButton Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" Clicked="Quiz_game" x:Name="Quiz_game_Next"/>
                 <Label Text="ВИКТОРИНА"
                        HorizontalOptions="Center"
-                       TextColor="#d6d5c0"
-                       FontSize="2,3"/>
+                       TextColor="#d6d5c0"/>
                 <Label Text="0/1"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="2,5"
                        x:Name="Progress_Qustions"/>
             </VerticalStackLayout>
         </Grid>

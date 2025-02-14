@@ -83,35 +83,32 @@
                FontSize="30" 
                VerticalOptions="Center"
                 HorizontalTextAlignment="Center"
-                >        
+               Keyboard="Numeric"
+               IsPassword="True">        
             </Entry>
         </VerticalStackLayout>
 
 
-        <Button Text="Уже были у нас?" Clicked="Return_Button" Grid.Row="2" WidthRequest="250" HeightRequest="55" ></Button>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="3"  VerticalOptions="Center" Spacing="-20">
+        <Button Text="Уже были у нас?" Clicked="Return_Button" Grid.Row="2" WidthRequest="250" HeightRequest="55" FontSize="20" ></Button>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="3"  VerticalOptions="Center" Spacing="-25">
 
                 <!-- Левая стрелка -->
                 <Button Text="&#x276E;" 
-                    WidthRequest="50" 
-                    HeightRequest="80"
                     HorizontalOptions="Start" 
                     VerticalOptions="Center"
                     BackgroundColor="Transparent" 
                     TextColor="Beige" 
-                    FontSize="40"
-                    Clicked="CounterBtn_Clicked"/>  
+                    Clicked="CounterBtn_Clicked"  Style="{StaticResource DynamicButtonStyle}"/>
 
-                <Button Text="далее" HeightRequest="80" WidthRequest="150" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40" Clicked="CounterBtn_Clicked" FontFamily="helvetica_bold"></Button>
+            <Button Text="далее" BackgroundColor="Transparent" TextColor="#d6d5c0"  Clicked="CounterBtn_Clicked"  Style="{StaticResource DynamicButtonStyle}"></Button>
 
                 <!-- Правая стрелка -->
-                <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
+                <Button Text="&#x276F;" 
                     BackgroundColor="Transparent"
                     HorizontalOptions="End" 
                     VerticalOptions="Center"
                     TextColor="Beige" 
-                    FontSize="40"
-                    Clicked="CounterBtn_Clicked"/>
+                    Clicked="CounterBtn_Clicked"  Style="{StaticResource DynamicButtonStyle}"/>
 
             </StackLayout>
         

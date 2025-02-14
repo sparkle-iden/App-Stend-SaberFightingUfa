@@ -90,6 +90,13 @@ public partial class XenoZoo : ContentPage
     }
 
     string questName = "Ксенозоология";
+
+    private void DisableOtherButtons(Button clickedButton, Button button2, Button button3)
+    {
+        clickedButton.IsEnabled = false; // Оставляем нажатую кнопку активной
+        button2.IsEnabled = false; // Деактивируем остальные кнопки
+        button3.IsEnabled = false;
+    }
     private void Fail_Question(object sender, EventArgs e)
     {
         var button = sender as Button;
@@ -98,6 +105,10 @@ public partial class XenoZoo : ContentPage
         {
             button.BackgroundColor = Colors.Red;  // Задаём красный цвет для неправильного ответа
         }
+        var button1 = this.FindByName<Button>($"question_{complet}_answer_1");
+        var button2 = this.FindByName<Button>($"question_{complet}_answer_2");
+        var button3 = this.FindByName<Button>($"question_{complet}_answer_3");
+        DisableOtherButtons(button, button2, button3);
         if (complet == 3)
         {
             Text_scroll.IsVisible = false;
@@ -106,6 +117,7 @@ public partial class XenoZoo : ContentPage
             end.Text = "Вы провалили испытания КсеноЗоолога";
             _query_sql.AddQuestProgressUser(_userName, questName);
         }
+
     }
 
     private async void Right_answer(object sender, EventArgs e)
@@ -120,6 +132,10 @@ public partial class XenoZoo : ContentPage
         // Обновляем деньги пользователя в базе данных
         _query_sql.AddMoneyToUser(_userName, coinsToAdd);
         complet++;
+        var button1 = this.FindByName<Button>($"question_{complet}_answer_1");
+        var button2 = this.FindByName<Button>($"question_{complet}_answer_2");
+        var button3 = this.FindByName<Button>($"question_{complet}_answer_3");
+        DisableOtherButtons(button, button2, button3);
         // Обновляем отображение денег в интерфейсе
         await UpdateUserMoney();
         if (complet == 3)

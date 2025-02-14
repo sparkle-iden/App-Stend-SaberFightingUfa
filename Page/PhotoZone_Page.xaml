@@ -28,7 +28,6 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label x:Name="Login_user"
-                           FontSize="2,5"
                            HorizontalOptions="Start"
                            VerticalOptions="Center"
                            TextColor="#d6d5c0"
@@ -38,7 +37,6 @@
                   VerticalOptions="Center"
                   Grid.Column="1">
                 <Label x:Name="User_Money"
-                FontSize="Large"
                 TextColor="#d6d5c0"/>
                 <!-- Значок -->
                 <Image Source="credit.png"
@@ -47,28 +45,24 @@
             </StackLayout>
         </Grid>
 
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="3" HeightRequest="150" VerticalOptions="Center">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="3" HeightRequest="150" VerticalOptions="Center" Spacing="-15"> 
 
             <!-- Левая стрелка -->
             <Button Text="&#x276E;" 
-                    WidthRequest="50" 
-                    HeightRequest="150"
                     HorizontalOptions="Start" 
                     VerticalOptions="Center"
                     BackgroundColor="Transparent" 
                     TextColor="Beige" 
-                    FontSize="40"
                     Clicked="Nazad"/>
 
-            <Button Text="НАЗАД" HeightRequest="80" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40"  Clicked="Nazad"></Button>
+            <Button Text="НАЗАД"  BackgroundColor="Transparent" TextColor="#d6d5c0" Clicked="Nazad"></Button>
 
             <!-- Правая стрелка -->
-            <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
+            <Button Text="&#x276F;" 
                     BackgroundColor="Transparent"
                     HorizontalOptions="End" 
                     VerticalOptions="Center"
                     TextColor="Beige" 
-                    FontSize="40"
                     Clicked="Nazad"/>
 
         </StackLayout>

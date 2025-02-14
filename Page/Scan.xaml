@@ -16,28 +16,24 @@
             x:Name="cameraBarcodeReaderView"
             BarcodesDetected="BarcodesDetected" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
 
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="1"  VerticalOptions="Center">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="1"  VerticalOptions="Center" Spacing="-15"> 
 
             <!-- Левая стрелка -->
             <Button Text="&#x276E;" 
-                      WidthRequest="50" 
-                      HeightRequest="150"
                       HorizontalOptions="Start" 
                       VerticalOptions="Center"
                       BackgroundColor="Transparent" 
-                      TextColor="Beige" 
-                      FontSize="40"
+                      TextColor="#d6d5c0"
                       Clicked="Nazad"/>
 
-            <Button Text="НАЗАД" HeightRequest="80" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40"  Clicked="Nazad" FontFamily="helvetica_bold"></Button>
+            <Button Text="НАЗАД" BackgroundColor="Transparent" TextColor="#d6d5c0"   Clicked="Nazad"></Button>
 
             <!-- Правая стрелка -->
             <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
                       BackgroundColor="Transparent"
                       HorizontalOptions="End" 
                       VerticalOptions="Center"
-                      TextColor="Beige" 
-                      FontSize="40"
+                      TextColor="#d6d5c0" 
                       Clicked="Nazad"/>
 
         </StackLayout>

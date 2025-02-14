@@ -1,42 +1,55 @@
-using MySql.Data.MySqlClient;
-using static System.Net.Mime.MediaTypeNames;
+п»їusing MySql.Data.MySqlClient;
+using System.Threading.Tasks;
 
 namespace MauiApp3.Page
 {
     public partial class WriteLogin : ContentPage
     {
         private Query_SQL _query_sql;
+        private bool _isRequestInProgress = false; // Р¤Р»Р°Рі Р°РєС‚РёРІРЅРѕСЃС‚Рё Р·Р°РїСЂРѕСЃР°
+
         public WriteLogin()
         {
             InitializeComponent();
         }
 
-
         private async void CounterBtn_Clicked(object sender, EventArgs e)
         {
-            _query_sql = new Query_SQL(Login_entry.Text);
-            string login = Login_entry.Text;
-            int password = Convert.ToInt32(Password_entry.Text);
-            if (!string.IsNullOrEmpty(login))
+            if (_isRequestInProgress) return; // Р‘Р»РѕРєРёСЂСѓРµРј РїРѕРІС‚РѕСЂРЅС‹Р№ РІРІРѕРґ
+
+            _isRequestInProgress = true; // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С„Р»Р°Рі
+            ToggleUI(false); // РћС‚РєР»СЋС‡Р°РµРј СЌР»РµРјРµРЅС‚С‹ РёРЅС‚РµСЂС„РµР№СЃР°
+
+            try
             {
-                    if (password != null)
-                    {
-                        // Сохранение логина в базу данных
-                        await SaveLoginToDatabaseAsync(login, password);
-                        Preferences.Set("UserName", login);
-                        // Переход на следующую страницу
-                    }
-                    else
-                    {
-                        await DisplayAlert("Ошибка", "Введите пин-код.", "OK");
-                    }
+                string login = Login_entry.Text;
+                if (string.IsNullOrEmpty(login))
+                {
+                    await DisplayAlert("РћС€РёР±РєР°", "Р’РІРµРґРёС‚Рµ РёРјСЏ.", "OK");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(Password_entry.Text))
+                {
+                    await DisplayAlert("РћС€РёР±РєР°", "Р’РІРµРґРёС‚Рµ РїРёРЅ-РєРѕРґ.", "OK");
+                    return;
+                }
+
+                if (!int.TryParse(Password_entry.Text, out int password))
+                {
+                    await DisplayAlert("РћС€РёР±РєР°", "РџРёРЅ-РєРѕРґ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‡РёСЃР»РѕРј.", "OK");
+                    return;
+                }
+
+                _query_sql = new Query_SQL(login);
+                await SaveLoginToDatabaseAsync(login, password);
+                Preferences.Set("UserName", login);
             }
-            else
+            finally
             {
-                await DisplayAlert("Ошибка", "Введите имя.", "OK");
+                _isRequestInProgress = false; // РЎР±СЂР°СЃС‹РІР°РµРј С„Р»Р°Рі
+                ToggleUI(true); // Р’РєР»СЋС‡Р°РµРј СЌР»РµРјРµРЅС‚С‹ РёРЅС‚РµСЂС„РµР№СЃР°
             }
-            
-              
         }
 
         private async Task SaveLoginToDatabaseAsync(string login, int password)
@@ -47,90 +60,86 @@ namespace MauiApp3.Page
             {
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    await connection.OpenAsync(); // Асинхронное открытие соединения
-                    try
+                    await connection.OpenAsync();
+                    string query = "INSERT INTO User (UserName, UserMoney, Password) VALUES (@login, 0, @password)";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        Console.WriteLine("Подключение успешно!");
+                        command.Parameters.AddWithValue("@login", login);
+                        command.Parameters.AddWithValue("@password", password);
+                        await _query_sql.InitializeUserQuests(login);
+                        await command.ExecuteNonQueryAsync();
 
-                        string query = "INSERT INTO User (UserName, UserMoney, Password) VALUES (@login, 0, @password)";
-                        using (MySqlCommand command = new MySqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@login", login);
-                            command.Parameters.AddWithValue("@password", password);
-                            await _query_sql.InitializeUserQuests(login);
-                            // Асинхронное выполнение команды
-                            await command.ExecuteNonQueryAsync();
-                            Console.WriteLine("Логин успешно сохранён в базе данных.");
-                            await Navigation.PushAsync(new Page.Quest(login));
-                        }
-
-                    }
-                    catch
-                    {
-                        await DisplayAlert("Ошибка", "Такой ник уже существует, введите другой.", "OK");
+                        await Navigation.PushAsync(new Page.Quest(login));
                     }
                 }
-                
             }
-            catch 
+            catch
             {
-                await DisplayAlert("Ошибка", "Ошибка подключения.", "OK");
+                await DisplayAlert("РћС€РёР±РєР°", "РўР°РєРѕР№ РЅРёРє СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, РІРІРµРґРёС‚Рµ РґСЂСѓРіРѕР№.", "OK");
             }
         }
 
         private async void Return_Button(object sender, EventArgs e)
         {
-            if (Login_entry.Text != null )
-            {
-                if (Password_entry.Text != null)
-                {
-                    string connectionString = "Server=server269.hosting.reg.ru;Database=u2917647_Sparkle;User ID=u2917647_default;Password=1tB6J7OD3cmt3JD1;Charset=utf8mb4;";
-                    string query = "SELECT Password FROM User WHERE UserName = @UserName";
-                    string Password=Password_entry.Text;
-                    string login = Login_entry.Text;
-                    string PasswordUser="0";
-                    using (MySqlConnection connection = new MySqlConnection(connectionString))
-                    {
-                        try
-                        {
-                           await connection.OpenAsync();
-                            using (MySqlCommand cmd = new MySqlCommand(query, connection))
-                            {
-                                cmd.Parameters.AddWithValue("@UserName", login);
-                                object result = await cmd.ExecuteScalarAsync();
-                                if (result != null)
-                                {
-                                    PasswordUser = Convert.ToString(result);
-                                }
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"Error: {ex.Message}");
-                        }
-                    }
-                    Console.WriteLine(PasswordUser);
-                    if (Password==PasswordUser)
-                    {
-                        login = Login_entry.Text;
-                        await Navigation.PushAsync(new Page.Quest(login));
-                    }
-                    else
-                    {
-                        await DisplayAlert("Ошибка", "Неправильный логин или пин-код.", "OK");
-                    }
+            if (_isRequestInProgress) return; // Р‘Р»РѕРєРёСЂСѓРµРј РїРѕРІС‚РѕСЂРЅС‹Р№ РІРІРѕРґ
 
+            _isRequestInProgress = true;
+            ToggleUI(false);
+
+            try
+            {
+                if (string.IsNullOrEmpty(Login_entry.Text))
+                {
+                    await DisplayAlert("РћС€РёР±РєР°", "Р’РІРµРґРёС‚Рµ РЅРёРє.", "OK");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(Password_entry.Text))
+                {
+                    await DisplayAlert("РћС€РёР±РєР°", "Р’РІРµРґРёС‚Рµ РїРёРЅ-РєРѕРґ.", "OK");
+                    return;
+                }
+
+                string connectionString = "Server=server269.hosting.reg.ru;Database=u2917647_Sparkle;User ID=u2917647_default;Password=1tB6J7OD3cmt3JD1;Charset=utf8mb4;";
+                string query = "SELECT Password FROM User WHERE UserName = @UserName";
+                string enteredPassword = Password_entry.Text;
+                string login = Login_entry.Text;
+                string storedPassword = "0";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@UserName", login);
+                        object result = await cmd.ExecuteScalarAsync();
+                        if (result != null)
+                        {
+                            storedPassword = Convert.ToString(result);
+                        }
+                    }
+                }
+
+                if (enteredPassword == storedPassword)
+                {
+                    await Navigation.PushAsync(new Page.Quest(login));
                 }
                 else
                 {
-                    await DisplayAlert("Ошибка", "Введите пин-код.", "OK");
+                    await DisplayAlert("РћС€РёР±РєР°", "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РЅРёРє РёР»Рё РїРёРЅ-РєРѕРґ.", "OK");
                 }
             }
-            else
+            finally
             {
-                await DisplayAlert("Ошибка", "Введите имя", "OK");
+                _isRequestInProgress = false;
+                ToggleUI(true);
             }
-          
+        }
+
+        private void ToggleUI(bool isEnabled)
+        {
+            Login_entry.IsEnabled = isEnabled;
+            Password_entry.IsEnabled = isEnabled;
         }
     }
 }

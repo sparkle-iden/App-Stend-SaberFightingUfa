@@ -11,7 +11,7 @@
             <RowDefinition Height="80"/>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -39,7 +39,7 @@
         
         
         <Grid Grid.Row="3" HorizontalOptions="Center" Grid.Column="1">
-            <ScrollView Grid.Row="3" HorizontalOptions="Center" Grid.Column="1" x:Name="Text_scroll" IsVisible="Hidden" >
+            <ScrollView Grid.Row="3" HorizontalOptions="Center" Grid.Column="1" x:Name="Text_scroll" IsVisible="Hidden" VerticalScrollBarVisibility="Always" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="70"></RowDefinition>
@@ -51,35 +51,35 @@
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150"></ColumnDefinition>
-                        <ColumnDefinition Width="150"></ColumnDefinition>
-                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
                     <Label x:Name="zoo" Grid.Row="0" HeightRequest="70"  HorizontalTextAlignment="Center" FontSize="35" Grid.ColumnSpan="3"></Label>
-                    <Label x:Name="qustions_1" Grid.Row="1" HeightRequest="70" HorizontalTextAlignment="Center" FontSize="25" Grid.ColumnSpan="3"></Label>
-                    <Button x:Name="question_1_answer_1"  Grid.Row="2" Grid.Column="0" LineBreakMode="WordWrap"></Button>
-                    <Button x:Name="question_1_answer_2"  Grid.Row="2" Grid.Column="1" LineBreakMode="WordWrap" ></Button>
-                    <Button x:Name="question_1_answer_3"  Grid.Row="2" Grid.Column="2" LineBreakMode="WordWrap" ></Button>
-                    <Label x:Name="qustions_2" Grid.Row="3" HorizontalTextAlignment="Center" FontSize="25" Grid.ColumnSpan="3"></Label>
+                    <Label x:Name="qustions_1" Grid.Row="1" HeightRequest="70" HorizontalTextAlignment="Center"  Grid.ColumnSpan="3"></Label>
+                    <Button x:Name="question_1_answer_1"  Grid.Row="2" Grid.Column="0" LineBreakMode="WordWrap"  Style="{StaticResource DynamicLabelStyle}"></Button>
+                    <Button x:Name="question_1_answer_2"  Grid.Row="2" Grid.Column="1" LineBreakMode="WordWrap" Style="{StaticResource DynamicLabelStyle}"></Button>
+                    <Button x:Name="question_1_answer_3"  Grid.Row="2" Grid.Column="2" LineBreakMode="WordWrap" Style="{StaticResource DynamicLabelStyle}" ></Button>
+                    <Label x:Name="qustions_2" Grid.Row="3" HorizontalTextAlignment="Center"  Grid.ColumnSpan="3"></Label>
 
-                    <Button x:Name="question_2_answer_1"  Grid.Row="4" Grid.Column="0" LineBreakMode="WordWrap" ></Button>
-                    <Button x:Name="question_2_answer_2"  Grid.Row="4" Grid.Column="1" LineBreakMode="WordWrap" ></Button>
-                    <Button x:Name="question_2_answer_3"  Grid.Row="4" Grid.Column="2" LineBreakMode="WordWrap" ></Button>
+                    <Button x:Name="question_2_answer_1"  Grid.Row="4" Grid.Column="0" LineBreakMode="WordWrap" Style="{StaticResource DynamicLabelStyle}"></Button>
+                    <Button x:Name="question_2_answer_2"  Grid.Row="4" Grid.Column="1" LineBreakMode="WordWrap" Style="{StaticResource DynamicLabelStyle}"></Button>
+                    <Button x:Name="question_2_answer_3"  Grid.Row="4" Grid.Column="2" LineBreakMode="WordWrap" Style="{StaticResource DynamicLabelStyle}"></Button>
 
-                    <Label x:Name="qustions_3" Grid.Row="5" HorizontalTextAlignment="Center" FontSize="25" Grid.ColumnSpan="3"></Label>
+                    <Label x:Name="qustions_3" Grid.Row="5" HorizontalTextAlignment="Center"  Grid.ColumnSpan="3"></Label>
 
-                    <Button x:Name="question_3_answer_1"  Grid.Row="6" Grid.Column="0" LineBreakMode="WordWrap" ></Button>
-                    <Button x:Name="question_3_answer_2"  Grid.Row="6" Grid.Column="1" LineBreakMode="WordWrap" ></Button>
-                    <Button x:Name="question_3_answer_3"  Grid.Row="6" Grid.Column="2" LineBreakMode="WordWrap" ></Button>
+                    <Button x:Name="question_3_answer_1"  Grid.Row="6" Grid.Column="0" LineBreakMode="WordWrap" Style="{StaticResource DynamicLabelStyle}"></Button>
+                    <Button x:Name="question_3_answer_2"  Grid.Row="6" Grid.Column="1" LineBreakMode="WordWrap" Style="{StaticResource DynamicLabelStyle}"></Button>
+                    <Button x:Name="question_3_answer_3"  Grid.Row="6" Grid.Column="2" LineBreakMode="WordWrap" Style="{StaticResource DynamicLabelStyle}"></Button>
 
 
                 </Grid>
 
             </ScrollView>
-        </Grid>    
-      
-        <ImageButton Grid.Row="4" Grid.Column="1" Source="icon_light_v3.png" WidthRequest="150" HeightRequest="150" Clicked="QR_scan" x:Name="Button_scan" IsVisible="Hidden"></ImageButton>
+        </Grid>
+
+        <ImageButton Grid.Row="4" Grid.Column="1" Source="ikonka_avanpost1.png" WidthRequest="150" HeightRequest="150" Clicked="QR_scan" x:Name="Button_scan" IsVisible="Hidden"></ImageButton>
 
         <Label Grid.ColumnSpan="3" Grid.RowSpan="5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center" IsVisible="False" x:Name="end" FontSize="40"></Label>
 
@@ -92,7 +92,6 @@
             </Grid.ColumnDefinitions>
 
             <Label x:Name="Login_user"
-                     FontSize="2,5"
                      HorizontalOptions="Start"
                      VerticalOptions="Center"
                      TextColor="#d6d5c0"
@@ -103,35 +102,31 @@
                        VerticalOptions="Center"
                        Grid.Column="1">
 
-                <Label x:Name="User_Money" FontSize="Large" TextColor="#d6d5c0"/>
+                <Label x:Name="User_Money"  TextColor="#d6d5c0"/>
                 <!-- Значок -->
                 <Image Source="credit.png" HeightRequest="30" WidthRequest="30" x:Name="Credit_resp"/>
             </StackLayout>
         </Grid>
 
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="5"  VerticalOptions="Center" Grid.ColumnSpan="3">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="5"  VerticalOptions="Center" Grid.ColumnSpan="3" Spacing="-15">
 
             <!-- Левая стрелка -->
             <Button Text="&#x276E;" 
-      WidthRequest="50" 
-      HeightRequest="80"
-      HorizontalOptions="Start" 
-      VerticalOptions="Center"
-      BackgroundColor="Transparent" 
-      TextColor="Beige" 
-      FontSize="40"
-      Clicked="Nazad"/>
+              HorizontalOptions="Start" 
+              VerticalOptions="Center"
+              BackgroundColor="Transparent" 
+              TextColor="Beige" 
+              Clicked="Nazad"/>
 
-            <Button Text="НАЗАД" HeightRequest="80" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40"  Clicked="Nazad" FontFamily="helvetica_bold"></Button>
+            <Button Text="НАЗАД" BackgroundColor="Transparent" TextColor="#d6d5c0"  Clicked="Nazad" ></Button>
 
             <!-- Правая стрелка -->
-            <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
-      BackgroundColor="Transparent"
-      HorizontalOptions="End" 
-      VerticalOptions="Center"
-      TextColor="Beige" 
-      FontSize="40"
-      Clicked="Nazad"/>
+            <Button Text="&#x276F;"
+              BackgroundColor="Transparent"
+              HorizontalOptions="End" 
+              VerticalOptions="Center"
+              TextColor="Beige" 
+              Clicked="Nazad"/>
 
         </StackLayout>
     </Grid>

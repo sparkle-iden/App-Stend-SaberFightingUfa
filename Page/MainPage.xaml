@@ -10,39 +10,51 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="150"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+            
                 <Image Grid.Row="0"
-                  
-                    Source="kto_my_chto_my.png"
-                    
+                    Source="icon_avanpost.png"
                 />
-        
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="1"  VerticalOptions="Center">
+      
+            <Label Grid.Row="1" 
+               Text="ДОБРО ПОЖАЛОВАТЬ НА ПЛАНЕТУ БАТУУ, В АВАНПОСТ КОНТРАБАНДИСТОВ. ЗДЕСЬ ВЫ МОЖЕТЕ ПОУЧАСТВОВАТЬ В РАЗЛИЧНЫХ КВЕСТАХ, СФОТОГРАФИРОВАТЬСЯ В НАШЕЙ ФОТОЗОНЕ, ПОИГРАТЬ В КАРТОЧНЫЕ ИГРЫ ИЗ ДАЛЕКОЙ ДАЛЕКОЙ ГАЛАКТИКИ, А ТАКЖЕ ПОПРОБОВАТЬ СЕБЯ В РОЛИ ДЖЕДАЯ И НАУЧИТЬСЯ ОБРАЩЕНИЮ СО СВЕТОВЫМ МЕЧОМ."
+               HorizontalTextAlignment="Center" 
+               HorizontalOptions="Center"   
+               Style="{StaticResource DynamicLabelStyle}"
+         
+               Padding="10,0,10,0">
+            <Label.Shadow>
+                <Shadow Brush="Black"
+                Offset="2,2"
+                Radius="5"
+                Opacity="3" />
+            </Label.Shadow>
+            </Label>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="2"  VerticalOptions="Center"   >
 
             <!-- Левая стрелка -->
             <Button Text="&#x276E;" 
-         WidthRequest="50" 
-         HeightRequest="150"
-         HorizontalOptions="Start" 
-         VerticalOptions="Center"
-         BackgroundColor="Transparent" 
-         TextColor="Beige" 
-         FontSize="40"
-         Clicked="OnCounterClicked"/>
+             HorizontalOptions="Start" 
+             VerticalOptions="Center"
+             BackgroundColor="Transparent" 
+             TextColor="Beige" 
+             Clicked="OnCounterClicked"
+             Style="{StaticResource DynamicButtonStyle}"/>
 
-            <Button Text="Далее" HeightRequest="100" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40" Clicked="OnCounterClicked" FontFamily="helvetica_bold"></Button>
+            <Button Text="Далее"  BackgroundColor="Transparent" TextColor="#d6d5c0"  Clicked="OnCounterClicked" Style="{StaticResource DynamicButtonStyle}"></Button>
 
             <!-- Правая стрелка -->
-            <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
-         BackgroundColor="Transparent"
-         HorizontalOptions="End" 
-         VerticalOptions="Center"
-         TextColor="Beige" 
-         FontSize="40"
-         Clicked="OnCounterClicked"/>
-
+            <Button Text="&#x276F;" 
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="End" 
+                    VerticalOptions="Center"
+                    TextColor="Beige" 
+                    Clicked="OnCounterClicked"
+                    Style="{StaticResource DynamicButtonStyle}"/>
         </StackLayout>
         
      </Grid>

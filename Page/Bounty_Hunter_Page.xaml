@@ -16,7 +16,7 @@
 
         <Label Text="Наемник" Grid.Row="1" Grid.ColumnSpan="2" TextColor="#d6d5c0" HorizontalTextAlignment="Center" VerticalTextAlignment="End" FontSize="35"></Label>
 
-        <Label Text="У наших ребят появилось немного свободного времени между сделками и они иогут провести для вас небольшую тренировка, отыщите их, может они и согласятся." Grid.Row="2" FontSize="25" HorizontalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="450"></Label>
+        <Label Text="У наших ребят появилось немного свободного времени между сделками и они иогут провести для вас небольшую тренировка, отыщите их, может они и согласятся." Grid.Row="2"  HorizontalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="450"></Label>
 
         <!-- Верхняя панель с текстом и значком -->
         <Grid Grid.Row="0"  HorizontalOptions="Center" ColumnSpacing="150">
@@ -25,7 +25,6 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label x:Name="Login_user"
-                           FontSize="2,5"
                            HorizontalOptions="Start"
                            VerticalOptions="Center"
                            TextColor="#d6d5c0"
@@ -35,7 +34,6 @@
                   VerticalOptions="Center"
                   Grid.Column="1">
                 <Label x:Name="User_Money"
-                FontSize="Large"
                 TextColor="#d6d5c0"/>
                 <!-- Значок -->
                 <Image Source="credit.png"
@@ -62,13 +60,11 @@
 
                 <Label Text="Тир"
                        TextColor="#d6d5c0"
-                       FontSize="25"
                        HorizontalTextAlignment="Center"/>
 
                 <Label Text="0/1"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="25"
                        x:Name="Shoting_Progress"/>
             </VerticalStackLayout>
 
@@ -79,14 +75,12 @@
                 <Label Text="Охота за головами"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="25"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"/>
 
                 <Label Text="0/3"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="25"
                         x:Name="Head_Hunter_Progress"/>
 
             </VerticalStackLayout>
@@ -96,14 +90,12 @@
 
                 <Label Text="Дуэль"
                        TextColor="#d6d5c0"
-                       FontSize="25"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"/>
 
                 <Label Text="0/1"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="25"
                         x:Name="Duel_Progress"/>
 
             </VerticalStackLayout>
@@ -115,40 +107,35 @@
                 <Label Text="Сражение на мечах"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="25"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"/>
 
                 <Label Text="0/1"
                        HorizontalOptions="Center"
                        TextColor="#d6d5c0"
-                       FontSize="25"
                         x:Name="Fighting_Progress"/>
             </VerticalStackLayout>
 
         </Grid>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="4" HeightRequest="150" VerticalOptions="Center">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="4" HeightRequest="150" VerticalOptions="Center" Spacing="-15">
 
             <!-- Левая стрелка -->
             <Button Text="&#x276E;" 
-                    WidthRequest="50" 
-                    HeightRequest="150"
                     HorizontalOptions="Start" 
                     VerticalOptions="Center"
                     BackgroundColor="Transparent" 
                     TextColor="Beige" 
-                    FontSize="40"
                     Clicked="Nazad"/>
 
-            <Button Text="НАЗАД" HeightRequest="80" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40"  Clicked="Nazad"></Button>
+            <Button Text="НАЗАД"  BackgroundColor="Transparent" TextColor="#d6d5c0"  Clicked="Nazad"></Button>
 
             <!-- Правая стрелка -->
-            <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
+            <Button Text="&#x276F;"
                     BackgroundColor="Transparent"
                     HorizontalOptions="End" 
                     VerticalOptions="Center"
                     TextColor="Beige" 
-                    FontSize="40"
+                   
                     Clicked="Nazad"/>
 
         </StackLayout>

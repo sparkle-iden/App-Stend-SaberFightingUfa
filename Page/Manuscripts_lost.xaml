@@ -26,7 +26,7 @@
 
         <HorizontalStackLayout Grid.Row="2" HorizontalOptions="Start">
             <Image Source="icon_v3.png"  WidthRequest="60" HeightRequest="50"></Image>
-            <Label Text="Потерянные рукописи" TextColor="#d6d5c0"  FontSize="26"  HeightRequest="35" WidthRequest="300"></Label>
+            <Label Text="Потерянные рукописи" TextColor="#d6d5c0"  FontSize="25"  HeightRequest="35" WidthRequest="300"></Label>
 
         </HorizontalStackLayout>
 
@@ -70,7 +70,6 @@
             </Grid.ColumnDefinitions>
 
             <Label x:Name="Login_user"
-                         FontSize="2,5"
                          HorizontalOptions="Start"
                          VerticalOptions="Center"
                          TextColor="#d6d5c0"
@@ -81,34 +80,30 @@
                            VerticalOptions="Center"
                            Grid.Column="1">
 
-                <Label x:Name="User_Money" FontSize="Large" TextColor="#d6d5c0"/>
+                <Label x:Name="User_Money" TextColor="#d6d5c0"/>
                 <!-- Значок -->
                 <Image Source="credit.png" HeightRequest="30" WidthRequest="30" x:Name="Credit_resp"/>
             </StackLayout>
         </Grid>
 
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="5"  VerticalOptions="Center">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="5"  VerticalOptions="Center" Spacing="-15">
 
             <!-- Левая стрелка -->
             <Button Text="&#x276E;" 
-          WidthRequest="50" 
-          HeightRequest="80"
           HorizontalOptions="Start" 
           VerticalOptions="Center"
           BackgroundColor="Transparent" 
           TextColor="Beige" 
-          FontSize="40"
           Clicked="Nazad"/>
 
-            <Button Text="НАЗАД" HeightRequest="80" WidthRequest="180" BackgroundColor="Transparent" TextColor="#d6d5c0" FontSize="40"  Clicked="Nazad" FontFamily="helvetica_bold" VerticalOptions="Center"></Button>
+            <Button Text="НАЗАД" BackgroundColor="Transparent" TextColor="#d6d5c0"   Clicked="Nazad"  VerticalOptions="Center"></Button>
 
             <!-- Правая стрелка -->
-            <Button Text="&#x276F;" WidthRequest="50" HeightRequest="80"
+            <Button Text="&#x276F;" 
           BackgroundColor="Transparent"
           HorizontalOptions="End" 
           VerticalOptions="Center"
           TextColor="Beige" 
-          FontSize="40"
           Clicked="Nazad"/>
 
         </StackLayout>
